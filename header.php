@@ -47,5 +47,3 @@
   ?>
   
 </div><!-- END .offcanvas -->
-
-<div class="page">

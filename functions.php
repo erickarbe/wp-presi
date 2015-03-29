@@ -71,13 +71,15 @@ add_action( 'widgets_init', 'baseline_widgets_init' );
 function baseline_scripts() {
 	
 	/* CSS */
-	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,600' );
+	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,600|Roboto+Slab:400,700' );
+	wp_enqueue_style( 'owl', get_template_directory_uri() . '/library/owl-carousel/owl.carousel.css' );
+	wp_enqueue_style( 'owl', get_template_directory_uri() . '/library/owl-carousel/owl.theme.css' );
 	wp_enqueue_style( 'baseline-style', get_stylesheet_uri() );
 	
 
   
   /* JS */
-	//wp_enqueue_script( 'plugins', get_template_directory_uri() . '/library/js/plugins.js', array('jquery'), '1', true );
+	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/library/owl-carousel/owl.carousel.js', array('jquery'), '1', true );
 	wp_enqueue_script( 'app', get_template_directory_uri() . '/library/js/app.js', array('jquery'), '1', true );
 
 }

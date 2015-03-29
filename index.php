@@ -12,9 +12,6 @@
  */
 
 get_header(); ?>
-
-	<div id="primary" class="content-area">
-  
   
     <?php 
       
@@ -24,21 +21,21 @@ get_header(); ?>
     ?>
       
 		<?php if ( have_posts() ) : ?>
-      
-      <ul>
 			
+			<div id="owl-slider" class="owl-carousel owl-theme">
+  			
 			<?php while ( have_posts() ) : the_post(); ?>
-
-				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+        
+        <div class="item">
 				
+				  <?php get_template_part('content', 'single'); ?>
+				
+        </div>
+        
 			<?php endwhile; ?>
-      
-      </ul>
 
-		<?php else : ?>
-
+			</div>
+			
 		<?php endif; ?>
-
-	</div><!-- #primary -->
 
 <?php get_footer(); ?>

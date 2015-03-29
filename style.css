@@ -28,6 +28,7 @@ html {
   font-size: 100%;  
   -webkit-text-size-adjust: 100%; 
   -ms-text-size-adjust: 100%; 
+  background-color: #000;
 }
 
 body { 
@@ -35,7 +36,7 @@ body {
   line-height: 1.4; 
   text-rendering:optimizeLegibility; 
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  background: #505050;
+  background: #363636;
   padding: 20px 0;
   min-height: 100%;
 }
@@ -43,14 +44,19 @@ body:after {
   clear: both;
   display: table;
 }
+body.single {
+  display: none;
+}
 
 .page { 
+  min-height: 100%;
   margin: 0px auto 0;
   max-width: 1024px;
   height: 768px;
   background: #fff;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
-  padding: 3em;
+  padding: 0em;
+  font-size: 1.2em;
 }
 
 /* Typography
@@ -72,6 +78,15 @@ small	   { font-size: 0.83em; }
 em 		   { font-style: italic; }
 p 		   { margin: 0 0 1em 0; }
 
+blockquote {
+  font-size: 1.5em;
+  font-family: Georgia;
+  font-style: italic;
+  color: #608B46;
+}
+
+ul li,
+ol li { padding: 0.3em 0; }
 
 /* Image alignment & Media
 ============================================================ */
@@ -142,13 +157,57 @@ img { height: auto; }
 
 /* Main Layout
 ============================================================ */
-
+.content-area {
+  height: 100%;
+  width: 100%;
+}
+.title-left {
+  float: left; 
+  width: 25%;
+  padding: 40px 15px 15px;
+  border-right: 1px solid #ccc;
+  height: 100%;
+  background: #f4f4f4;
+}
 h1.page-title {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 800;
+  margin: 0;
+  padding-top: 15px;
+  font-size: 1.6em;
   color: #3E6427;
-  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-top: 5px solid #3E6427;
+  font-family: 'Roboto Slab', Georgia, serif;
+}
+
+.content-right {
+  float: left;
+  height: 100%;
+  width: 75%;
+  padding: 1em 1.7em;
+}
+
+/* Full width Title Slide */
+
+h1.site-title {
+  position: relative;
+  color: #000;
+  font-size: 2.7em;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.87);
+  width: 100%;
+  line-height: 2;
+  font-weight: 800;
+  
+}
+.callout-content {
+  width: 380px;
+  background: rgba(255, 255, 255, 0.87);
+  float: right;
+  /* margin-right: 8em; */
+  padding: 1.5em;
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+  font-size: 1.3em;
 }
 
 
@@ -216,4 +275,41 @@ h1.page-title {
   div[class*='span-'].offset-10 {margin-left: 84.5833333333%;}
   div[class*='span-'].offset-11 {margin-left: 93.0416666667%;}
   
+}
+
+@media print {
+  
+  body.single {
+    display: block;
+  }
+  
+  .offcanvas,
+  .menu-toggle {
+    display: none;
+  }
+  
+  .owl-slider,
+  .owl-wrapper-outer,
+  .owl-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .owl-carousel .owl-item {
+    float: none;
+    margin: 0 auto 10px;
+    max-width: 900px;
+    max-height: 700px;
+    padding: 10px 0;
+    
+  }
+  
+  .item,
+  .page { 
+    page-break-before: always;
+    max-height: 700px;
+  }
+  /*
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  */
 }
